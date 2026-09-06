@@ -1,43 +1,45 @@
-# Katia Ticona — Perfil Académico & Portafolio Web
+# ¡Hola! 👋 Soy Katia Ticona
 
-Este repositorio contiene el código fuente de mi página web personal y portafolio académico. Es un sitio web de una sola página (*single-page layout*), ligero, accesible y adaptable, diseñado para destacar mi formación académica, publicaciones y trayectoria en el área de Ingeniería Estadística e Informática y la Gerencia de TIC.
+<p align="left">
+  <img src="https://img.shields.io/badge/Estudiante%20de%20Maestr%C3%ADa-Gerencia%20de%20TIC-8B5FBF?style=flat-square" alt="Maestría">
+  <img src="https://img.shields.io/badge/Egresada-Ing.%20Estadística%20e%20Informática-D88FC4?style=flat-square" alt="Pregrado">
+  <img src="https://img.shields.io/badge/ORCID-0009--0006--4042--984X-6B3FA0?style=flat-square&logo=orcid&logoColor=white" alt="ORCID">
+</p>
 
----
-
-## 🌟 Características
-
-- **Diseño Moderno y Estilizado:**
-  - Paleta de colores suaves en tonos lila, rosa y tinta.
-  - Efectos de fondo flotantes (*ambient gradient blobs*) mediante animaciones CSS.
-  - Resplandor interactivo (*cursor glow*) que sigue el movimiento del puntero.
-- **Interactividad & UX:**
-  - Barra de progreso de lectura (*scroll progress bar*).
-  - Menú de navegación pegajoso (*sticky topnav*) con espía de desplazamiento (*scroll spy*).
-  - Tarjetas interactivas con efecto giratorio (*flip cards*) para resúmenes de publicaciones científicas.
-  - Botón de un solo clic para copiar la dirección de correo al portapapeles.
-  - Contadores numéricos animados para estadísticas.
-- **Mini-Juego Incluido:** Un clásico juego de *Snake* integrado en canvas con soporte para teclado y pad táctil.
-- **Accesibilidad y Rendimiento:**
-  - Soporte para la preferencia de movimiento reducido (`prefers-reduced-motion`).
-  - Totalmente adaptativo (*responsive*) para dispositivos móviles y de escritorio.
+Egresada de la Escuela Profesional de Ingeniería Estadística e Informática (**FINESI**) y cursando la **Maestría en Informática con mención en Gerencia de TIC** en la **Universidad Nacional del Altiplano (UNA Puno)**. Apasionada por el análisis de datos, el desarrollo web, la gestión de sistemas de información y la investigación orientada al impacto social y tecnológico.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
-
-- **HTML5:** Estructura semántica de la página.
-- **CSS3:** Estilos personalizados, Flexbox, Grid, variables CSS, animaciones nativas y diseño adaptable sin librerías externas.
-- **JavaScript (ES6+):** Manipulación del DOM, Web APIs (`IntersectionObserver`, `Clipboard API`, `Canvas API`) y la lógica del mini-juego.
-- **Google Fonts:**
-  - *Fraunces* (Títulos y acentos)
-  - *Poppins* (Cuerpo de texto)
-  - *IBM Plex Mono* (Etiquetas y código)
+## 🔬 Áreas de Interés e Investigación
+- **Gestión y Gobernanza TIC:** Planificación estratégica de infraestructura tecnológica y sistemas de información.
+- **Análisis de Datos & Estadística:** Aplicación de modelos estadísticos y geespaciales para el desarrollo territorial y agrícola.
+- **Tecnología Educativa:** Investigación sobre el impacto de la Inteligencia Artificial Generativa en la formación universitaria.
+- **Desarrollo Web:** Creación de plataformas orientadas a la gestión y servicios (experiencia con PHP, Laravel, CodeIgniter y bases de datos relacionales).
 
 ---
 
-## 📂 Estructura del Proyecto
+## 📚 Publicaciones Destacadas
 
-```text
-.
-├── index.html        # Documento principal con la estructura, estilos e interactividad
-└── README.md         # Documentación del repositorio
+1. **Perspectivas del uso de inteligencia artificial generativa ChatGPT y su relación con la formación académica en estudiantes universitarios**  
+   *O Mundo da Saúde* (Vol. 50, 2026). Estudio correlacional enfocado en el impacto de las herramientas de IA en el ámbito educativo superior.  
+   🔗 [Ver publicación](https://revistamundodasaude.emnuvens.com.br/mundodasaude/article/view/1881)
+
+2. **Performance Evaluation of a Digital Platform for Rural Tourism Management in Puno "Puno Virtual"**  
+   *SSRN* (2024). Evaluación de rendimiento, accesibilidad y arquitectura de plataformas digitales orientadas al turismo rural.  
+   🔗 [Ver en SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4904719)
+
+---
+
+## 🛠️ Tecnologías y Herramientas
+
+- **Lenguajes & Backend:** PHP, Laravel, CodeIgniter, SQL.
+- **Análisis & Datos:** Power BI, Python, herramientas estadísticas.
+- **Entorno de Trabajo:** Git, GitHub, Linux, herramientas de ofimática y gestión de proyectos TIC.
+
+---
+
+## 📬 Conectemos
+
+- **Portafolio Web:** [katiaticona.github.io](https://katiaticona.github.io) *(o tu enlace correspondiente)*
+- **Correo Electrónico:** [katiaticona12@gmail.com](mailto:katiaticona12@gmail.com)
+- **ORCID:** [0009-0006-4042-984X](https://orcid.org/0009-0006-4042-984X)
