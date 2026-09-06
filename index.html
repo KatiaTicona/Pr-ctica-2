@@ -1,1 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katia Ticona — Perfil Académico</title>
+<meta name="description" content="Egresada de Ingeniería Estadística e Informática · Maestría en Informática, Gerencia de TIC — Universidad Nacional del Altiplano">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Poppins:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FAF7FD;
+    --ink: #2C2140;
+    --muted: #7C6E90;
+    --line: #E4D7F5;
+    --lilac: #8B5FBF;
+    --lilac-deep: #6B3FA0;
+    --pink: #D88FC4;
+    --lilac-soft: #EFE5FA;
+    --pink-soft: #FAEAF6;
+    --max: 720px;
+  }
 
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ---- Ambient drifting gradient blobs: the signature element ---- */
+  .blob{
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .blob-1{
+    width: 380px; height: 380px;
+    background: var(--lilac);
+    top: -120px; left: -100px;
+    animation: drift1 22s ease-in-out infinite;
+  }
+  .blob-2{
+    width: 320px; height: 320px;
+    background: var(--lilac-deep);
+    bottom: -100px; right: -80px;
+    animation: drift2 26s ease-in-out infinite;
+  }
+  .blob-3{
+    width: 220px; height: 220px;
+    background: var(--pink);
+    top: 40%; right: 10%;
+    animation: drift3 19s ease-in-out infinite;
+  }
+  @keyframes drift1{
+    0%,100%{ transform: translate(0,0) scale(1); }
+    50%{ transform: translate(60px, 80px) scale(1.15); }
+  }
+  @keyframes drift2{
+    0%,100%{ transform: translate(0,0) scale(1); }
+    50%{ transform: translate(-50px, -60px) scale(1.1); }
+  }
+  @keyframes drift3{
+    0%,100%{ transform: translate(0,0); }
+    50%{ transform: translate(-40px, 30px); }
+  }
+
+  a { color: var(--lilac); text-decoration-color: var(--pink); text-underline-offset: 3px; }
+  a:hover { color: var(--pink); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--lilac); outline-offset: 3px; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .divider{
+    height: 3px;
+    background: linear-gradient(90deg, var(--lilac-deep), var(--lilac), var(--pink));
+    border-radius: 3px;
+    margin: 0 auto;
+    max-width: var(--max);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Barra de progreso de scroll ---- */
+  #progress-bar{
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--lilac-deep), var(--pink));
+    z-index: 50;
+    transition: width 80ms linear;
+  }
+
+  /* ---- Navegación superior ---- */
+  .topnav{
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(250, 247, 253, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    max-width: var(--max);
+    margin: 0 auto;
+    gap: 12px;
+  }
+  .topnav-brand{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--lilac-deep);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .topnav-links{
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .topnav-links::-webkit-scrollbar{ display: none; }
+  .topnav-links a{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: background 200ms ease, color 200ms ease;
+  }
+  .topnav-links a:hover{ background: var(--lilac-soft); color: var(--lilac-deep); }
+  .topnav-links a.active{ background: var(--lilac); color: #fff; }
+
+  section, .hero{ scroll-margin-top: 66px; }
+
+  /* ---- Resplandor que sigue al cursor en el hero ---- */
+  .hero{
+    position: relative;
+  }
+  .cursor-glow{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    background: radial-gradient(240px circle at var(--x, 50%) var(--y, 20%), rgba(139, 95, 191, 0.16), transparent 70%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  .cursor-glow.active{ opacity: 1; }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding: 76px 0 44px;
+    animation: rise 700ms ease-out both;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .mark{ margin-bottom: 20px; }
+  .mark svg{ display:block; }
+  .mark path{
+    stroke-dasharray: 140;
+    stroke-dashoffset: 140;
+    animation: draw 1.4s ease-out 200ms forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.3rem, 6vw, 3.4rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    background: linear-gradient(100deg, var(--ink) 40%, var(--lilac) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .role{
+    font-size: clamp(1rem, 2.3vw, 1.12rem);
+    color: var(--muted);
+    max-width: 48ch;
+    margin: 0;
+  }
+  .role strong{ color: var(--ink); font-weight: 500; }
+
+  /* ---- Sections ---- */
+  section{ padding: 48px 0; }
+  section.reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+  section.reveal.in{ opacity: 1; transform: translateY(0); }
+
+  h2{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.35rem, 3vw, 1.65rem);
+    margin: 0 0 18px;
+    color: var(--lilac);
+  }
+
+  .lede{
+    font-size: 1.03rem;
+    max-width: 60ch;
+    color: var(--ink);
+  }
+
+  /* ---- Formación ---- */
+  .edu-item{
+    padding: 20px 22px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    background: var(--lilac-soft);
+    border: 1px solid var(--line);
+    transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease;
+  }
+  .edu-item:nth-child(even){ background: var(--pink-soft); }
+  .edu-item:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -14px rgba(156, 127, 201, 0.45);
+  }
+  .edu-degree{ font-weight: 600; font-size: 1.05rem; }
+  .edu-inst{ color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+  .edu-status{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7A4E9E;
+    background: #fff;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-top: 8px;
+    width: fit-content;
+  }
+
+  /* ---- Contacto ---- */
+  footer{ padding: 48px 0 76px; }
+  .contact-list{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1rem;
+  }
+  .contact-list a{ font-weight: 500; }
+
+  .copy-btn{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(100deg, var(--pink), var(--lilac));
+    border: none;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 150ms ease, opacity 150ms ease;
+  }
+  .copy-btn:hover{ transform: scale(1.05); }
+  .copy-btn:active{ transform: scale(0.97); }
+  .copy-btn.copied{ opacity: 0.75; }
+
+  .contact-note{
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 480px){
+    .hero{ padding-top: 54px; }
+    section{ padding: 36px 0; }
+    .copy-btn{ display: block; margin: 10px 0 0; }
+  }
+
+  /* ---- Extra: mini-juego ---- */
+  #game-wrap{
+    margin-top: 20px;
+  }
+  .game-frame{
+    display: inline-block;
+    padding: 14px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 28px -16px rgba(156, 127, 201, 0.4);
+  }
+  #snake-canvas{
+    display: block;
+    border-radius: 10px;
+    background: var(--lilac-soft);
+    touch-action: none;
+  }
+  .game-meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .game-pad{
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(2, 40px);
+    gap: 6px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+  .game-pad button{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--pink-soft);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .game-pad button:active{ background: var(--pink); color: #fff; }
+  .pad-up{ grid-column: 2; grid-row: 1; }
+  .pad-left{ grid-column: 1; grid-row: 2; }
+  .pad-down{ grid-column: 2; grid-row: 2; }
+  .pad-right{ grid-column: 3; grid-row: 2; }
+  @media (min-width: 641px){
+    .game-pad{ display: none; }
+  }
+
+  /* ---- Publicaciones y reconocimientos ---- */
+  .stats-row{
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .stat-card{
+    flex: 1 1 140px;
+    padding: 18px 16px;
+    border-radius: 14px;
+    background: var(--pink-soft);
+    border: 1px solid var(--line);
+    text-align: center;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+  .stat-card:nth-child(2){ background: var(--lilac-soft); }
+  .stat-card:nth-child(3){ background: var(--pink-soft); }
+  .stat-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -14px rgba(156, 127, 201, 0.45);
+  }
+  .stat-num{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--lilac);
+    display: block;
+  }
+  .stat-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .pub-item{
+    padding: 20px 22px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+  .pub-item:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -14px rgba(232, 147, 190, 0.45);
+  }
+  .pub-title{ font-weight: 600; font-size: 1.02rem; margin-bottom: 4px; }
+  .pub-meta{ color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+  .pub-link{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+
+  /* ---- Flip card de publicación ---- */
+  .flip-card{
+    perspective: 1000px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    min-height: 190px;
+  }
+  .flip-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    transition: transform 500ms ease;
+    transform-style: preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{ transform: rotateY(180deg); }
+  .flip-front, .flip-back{
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    padding: 20px 22px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .flip-back{
+    transform: rotateY(180deg);
+    background: var(--lilac-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .pub-hint{
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--lilac);
+  }
+  .pub-back-text{ font-size: 0.92rem; color: var(--ink); margin: 0; }
+  @media (prefers-reduced-motion: reduce){
+    .flip-inner{ transition: none; }
+  }
+
+  .badge-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .badge{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    background: var(--lilac-soft);
+    border: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+  .badge-icon{ font-size: 1.1rem; }
+</style>
+</head>
+<body>
+
+  <nav class="topnav" id="topnav">
+    <div class="topnav-inner">
+      <a href="#top" class="topnav-brand">K. Ticona</a>
+      <div class="topnav-links">
+        <a href="#perfil">Perfil</a>
+        <a href="#formacion">Formación</a>
+        <a href="#publicaciones">Publicaciones</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#juego">🎮</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <div class="hero wrap" id="top">
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+    <div class="mark" aria-hidden="true">
+      <svg width="92" height="62" viewBox="0 0 92 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- laptop -->
+        <rect x="6" y="14" width="46" height="30" rx="3" stroke="#8B5FBF" stroke-width="2.2"/>
+        <path d="M2 46 L58 46 L52 54 L8 54 Z" stroke="#8B5FBF" stroke-width="2.2" stroke-linejoin="round"/>
+        <line x1="13" y1="22" x2="37" y2="22" stroke="#D88FC4" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="28" x2="43" y2="28" stroke="#D88FC4" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="34" x2="29" y2="34" stroke="#D88FC4" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- gatito asomándose -->
+        <path d="M56 16 L60 4 L66 17" stroke="#8B5FBF" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M64 17 L71 3 L75 16" stroke="#8B5FBF" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="65" cy="24" r="11" stroke="#8B5FBF" stroke-width="2.2"/>
+        <circle cx="61" cy="23" r="1.4" fill="#8B5FBF"/>
+        <circle cx="69" cy="23" r="1.4" fill="#8B5FBF"/>
+        <path d="M63.5 28 L66.5 28 L65 29.5 Z" fill="#D88FC4"/>
+        <path d="M53 24 L58 25.5 M53 28 L58 27.5" stroke="#8B5FBF" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M77 24 L72 25.5 M77 28 L72 27.5" stroke="#8B5FBF" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Perfil académico</p>
+    <h1>Katia Ticona</h1>
+    <p class="role">
+      <strong>Egresada de Ingeniería Estadística e Informática</strong> · Estudiante de Maestría en Informática (Mención en Gerencia de TIC) — Universidad Nacional del Altiplano
+    </p>
+  </div>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="reveal wrap" id="perfil">
+    <p class="eyebrow">Resumen profesional</p>
+    <h2>Sobre mí</h2>
+    <p class="lede">
+      Estudiante de posgrado en la Universidad Nacional del Altiplano (UNA Puno), con formación en Ingeniería Estadística e Informática (FINESI) y actualmente cursando la Maestría en Informática con mención en Gerencia de TIC. Experiencia en análisis de datos, gestión de sistemas de información, planificación estratégica de TI y formulación de proyectos de infraestructura tecnológica bajo estándares institucionales.
+    </p>
+  </section>
+
+  <section class="reveal wrap" id="formacion">
+    <p class="eyebrow">Formación</p>
+    <h2>Formación académica</h2>
+
+    <div class="edu-item">
+      <div class="edu-degree">Maestría en Informática</div>
+      <div class="edu-inst">Mención en Gerencia de TIC — Universidad Nacional del Altiplano</div>
+      <span class="edu-status">En curso</span>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-degree">Ingeniería Estadística e Informática</div>
+      <div class="edu-inst">Escuela Profesional de Ingeniería Estadística e Informática (FINESI) — Universidad Nacional del Altiplano</div>
+      <span class="edu-status">Egresada</span>
+    </div>
+  </section>
+
+  <section class="reveal wrap" id="publicaciones">
+    <p class="eyebrow">Publicaciones y reconocimientos</p>
+    <h2>Investigación y trayectoria</h2>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num" data-count="2">0</span>
+        <span class="stat-label">Publicaciones</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="2021">0</span>
+        <span class="stat-label">Tercio superior</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="2">0</span>
+        <span class="stat-label">Congresos / Reconoc.</span>
+      </div>
+    </div>
+
+    <div class="pub-item flip-card" id="pub-flip" tabindex="0" role="button" aria-expanded="false">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <p class="pub-title">Performance Evaluation of a Digital Platform for Rural Tourism Management in Puno "Puno Virtual"</p>
+          <p class="pub-meta">Con Fred Torres-Cruz · SSRN, julio 2024</p>
+          <span class="pub-hint">Toca para ver el resumen ↻</span>
+        </div>
+        <div class="flip-back">
+          <p class="pub-back-text">Plataforma digital para la gestión del turismo rural en Puno, desarrollada con CodeIgniter y MySQL, con mapas interactivos de Google Maps. Evaluada con Lighthouse en rendimiento, accesibilidad, buenas prácticas, SEO y PWA.</p>
+          <a class="pub-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4904719" target="_blank" rel="noopener">Ver en SSRN →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item flip-card" id="pub-flip-2" tabindex="0" role="button" aria-expanded="false">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <p class="pub-title">Perspectivas del uso de inteligencia artificial generativa ChatGPT y su relación con la formación académica en estudiantes universitarios</p>
+          <p class="pub-meta">Con Casa-Coila, Soto-Quispe, Quispe-Pacco, Apaza-Tipo y Mamani-Romero · O Mundo da Saúde, Vol. 50, julio 2026</p>
+          <span class="pub-hint">Toca para ver el resumen ↻</span>
+        </div>
+        <div class="flip-back">
+          <p class="pub-back-text">Estudio correlacional con 341 estudiantes de la Facultad de Ciencias de la Educación (UNAP): encuentra una relación positiva y significativa (r = 0.258, p &lt; 0.01) entre el uso de ChatGPT y la formación académica de los estudiantes.</p>
+          <a class="pub-link" href="https://revistamundodasaude.emnuvens.com.br/mundodasaude/article/view/1881" target="_blank" rel="noopener">Ver publicación →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="badge-row">
+      <span class="badge"><span class="badge-icon">🎓</span> Tercio superior — UNAP (2021)</span>
+      <span class="badge"><span class="badge-icon">🏛️</span> II Congreso Internacional de Investigación — UNAP</span>
+      <a class="badge" href="https://orcid.org/0009-0006-4042-984X" target="_blank" rel="noopener" style="text-decoration:none;">
+        <span class="badge-icon">🆔</span> ORCID: 0009-0006-4042-984X
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal wrap" id="contacto">
+    <footer style="padding:0;">
+      <p class="eyebrow">Contacto</p>
+      <ul class="contact-list">
+        <li>GitHub: <a href="https://github.com/KatiaTicona" target="_blank" rel="noopener">github.com/KatiaTicona</a></li>
+        <li>ORCID: <a href="https://orcid.org/0009-0006-4042-984X" target="_blank" rel="noopener">0009-0006-4042-984X</a></li>
+        <li>
+          Correo: <a href="mailto:katiaticona12@gmail.com" id="email-link">katiaticona12@gmail.com</a>
+          <button class="copy-btn" id="copy-btn" type="button">Copiar</button>
+        </li>
+      </ul>
+      <p class="contact-note">Actualizado 2026.</p>
+    </footer>
+  </section>
+
+  <section class="reveal wrap" id="juego">
+    <p class="eyebrow">Extra</p>
+    <h2>Una pausa</h2>
+    <p class="lede">Un pequeño juego, por si llegaste hasta aquí.</p>
+    <button class="copy-btn" id="game-toggle" type="button">Jugar</button>
+
+    <div id="game-wrap" hidden>
+      <div class="game-frame">
+        <canvas id="snake-canvas" width="280" height="280"></canvas>
+      </div>
+      <div class="game-meta">
+        <span id="score">Puntos: 0</span>
+        <span id="game-status">Usa las flechas del teclado</span>
+        <button class="copy-btn" id="game-restart" type="button" style="margin-left:0;">Reiniciar</button>
+      </div>
+      <div class="game-pad" aria-hidden="true">
+        <button class="pad-up" data-dir="up">↑</button>
+        <button class="pad-left" data-dir="left">←</button>
+        <button class="pad-down" data-dir="down">↓</button>
+        <button class="pad-right" data-dir="right">→</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Reveal on scroll
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+
+    // Copy email button
+    const copyBtn = document.getElementById('copy-btn');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('katiaticona12@gmail.com').then(() => {
+        copyBtn.textContent = '¡Copiado!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = 'Copiar';
+          copyBtn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+
+    // Menú: resalta el enlace de la sección visible (scroll spy)
+    const navLinks = document.querySelectorAll('.topnav-links a');
+    const navSections = ['top', 'perfil', 'formacion', 'publicaciones', 'contacto', 'juego']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    navSections.forEach(sec => navObs.observe(sec));
+
+    // Barra de progreso de scroll
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    });
+
+    // Resplandor que sigue al cursor en el hero (solo con puntero fino)
+    const heroEl = document.querySelector('.hero');
+    const glowEl = document.getElementById('cursor-glow');
+    if (window.matchMedia('(pointer: fine)').matches) {
+      heroEl.addEventListener('mousemove', (e) => {
+        const rect = heroEl.getBoundingClientRect();
+        glowEl.style.setProperty('--x', (e.clientX - rect.left) + 'px');
+        glowEl.style.setProperty('--y', (e.clientY - rect.top) + 'px');
+        glowEl.classList.add('active');
+      });
+      heroEl.addEventListener('mouseleave', () => glowEl.classList.remove('active'));
+    }
+
+    // Flip card de las publicaciones
+    document.querySelectorAll('.flip-card').forEach(card => {
+      function toggleFlip(){
+        const flipped = card.classList.toggle('flipped');
+        card.setAttribute('aria-expanded', flipped);
+      }
+      card.addEventListener('click', toggleFlip);
+      const link = card.querySelector('.pub-link');
+      if (link) link.addEventListener('click', (e) => e.stopPropagation());
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleFlip(); }
+      });
+    });
+
+    // Contadores animados en Publicaciones
+    const statNums = document.querySelectorAll('.stat-num');
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 900;
+        const start = performance.now();
+        function step(now){
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(progress * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+        statsObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statsObs.observe(el));
+
+    // Mini-juego: snake comiendo manzanas
+    const gameToggle = document.getElementById('game-toggle');
+    const gameWrap = document.getElementById('game-wrap');
+    const canvas = document.getElementById('snake-canvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('score');
+    const statusEl = document.getElementById('game-status');
+    const restartBtn = document.getElementById('game-restart');
+
+    const cell = 14;
+    const cols = canvas.width / cell;
+    const rows = canvas.height / cell;
+    let snake, dir, nextDir, apple, score, loopId, running;
+
+    function resetGame(){
+      snake = [{x: 6, y: 7}, {x: 5, y: 7}, {x: 4, y: 7}];
+      dir = 'right';
+      nextDir = 'right';
+      score = 0;
+      running = true;
+      placeApple();
+      scoreEl.textContent = 'Puntos: 0';
+      statusEl.textContent = 'Usa las flechas del teclado';
+      draw();
+    }
+
+    function placeApple(){
+      let valid = false;
+      while(!valid){
+        apple = { x: Math.floor(Math.random()*cols), y: Math.floor(Math.random()*rows) };
+        valid = !snake.some(s => s.x === apple.x && s.y === apple.y);
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // manzana
+      ctx.fillStyle = '#E893BE';
+      ctx.beginPath();
+      ctx.arc(apple.x*cell + cell/2, apple.y*cell + cell/2, cell/2 - 1.5, 0, Math.PI*2);
+      ctx.fill();
+      // snake
+      snake.forEach((seg, i) => {
+        ctx.fillStyle = i === 0 ? '#7A4E9E' : '#9C7FC9';
+        ctx.beginPath();
+        ctx.roundRect(seg.x*cell + 1, seg.y*cell + 1, cell - 2, cell - 2, 4);
+        ctx.fill();
+      });
+    }
+
+    function tick(){
+      if (!running) return;
+      dir = nextDir;
+      const head = { ...snake[0] };
+      if (dir === 'right') head.x++;
+      if (dir === 'left') head.x--;
+      if (dir === 'up') head.y--;
+      if (dir === 'down') head.y++;
+
+      const hitsWall = head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows;
+      const hitsSelf = snake.some(s => s.x === head.x && s.y === head.y);
+
+      if (hitsWall || hitsSelf){
+        running = false;
+        statusEl.textContent = '¡Chocaste! Toca Reiniciar';
+        clearInterval(loopId);
+        return;
+      }
+
+      snake.unshift(head);
+      if (head.x === apple.x && head.y === apple.y){
+        score++;
+        scoreEl.textContent = 'Puntos: ' + score;
+        placeApple();
+      } else {
+        snake.pop();
+      }
+      draw();
+    }
+
+    function setDir(newDir){
+      const opposite = { up: 'down', down: 'up', left: 'right', right: 'left' };
+      if (opposite[newDir] !== dir) nextDir = newDir;
+    }
+
+    gameToggle.addEventListener('click', () => {
+      const opening = gameWrap.hidden;
+      gameWrap.hidden = !gameWrap.hidden;
+      gameToggle.textContent = gameWrap.hidden ? 'Jugar' : 'Ocultar';
+      if (opening && !loopId){
+        resetGame();
+        loopId = setInterval(tick, 130);
+      }
+    });
+
+    restartBtn.addEventListener('click', () => {
+      clearInterval(loopId);
+      resetGame();
+      loopId = setInterval(tick, 130);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (gameWrap.hidden) return;
+      const map = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right',
+                    w: 'up', s: 'down', a: 'left', d: 'right' };
+      if (map[e.key]){
+        e.preventDefault();
+        setDir(map[e.key]);
+      }
+    });
+
+    document.querySelectorAll('.game-pad button').forEach(btn => {
+      btn.addEventListener('click', () => setDir(btn.dataset.dir));
+    });
+  </script>
+
+</body>
+</html>
